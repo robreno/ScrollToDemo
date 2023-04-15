@@ -10,6 +10,7 @@ using CommunityToolkit.Mvvm.Input;
 
 using ScrollToDemo.Models;
 using System.Collections.ObjectModel;
+using Microsoft.Maui.Controls.Platform;
 
 namespace ScrollToDemo.ViewModels
 {
@@ -68,11 +69,12 @@ namespace ScrollToDemo.ViewModels
             }
         }
 
-        internal async Task SetReferencePids()
+        [RelayCommand]
+        async Task SetReferencePids()
         {
             try
             {
-                await MainThread.InvokeOnMainThreadAsync(async () =>
+                await MainThread.InvokeOnMainThreadAsync(() =>
                 {
                     var vte = contentPage.Content.GetVisualTreeDescendants();
                     using (var enumerator = vte.GetEnumerator())
@@ -119,20 +121,25 @@ namespace ScrollToDemo.ViewModels
         {
             try
             {
-                // "_000_008";
-                var scrollView = contentPage.FindByName("contentScrollView") as ScrollView;
-                var label = contentPage.FindByName(labelName) as Label;
-                var labelX = label.X;
-                var labelY = label.Y;
-         
-                await MainThread.InvokeOnMainThreadAsync(async () =>
+                await MainThread.InvokeOnMainThreadAsync(() =>
                 {
+                    var scrollView = contentPage.FindByName("contentScrollView") as ScrollView;
+                    var label = contentPage.FindByName(labelName) as Label;
+                    var labelX = label.X; // 468.75 on Windows on Android 0
+                    var labelY = label.Y; // 1257.5 on Windows on Android 0
+                    
+
                     if (scrollView != null && label != null)
                     {
-                        //await scrollView.ScrollToAsync(labelX, labelY, false);
-                        await scrollView.ScrollToAsync(label, ScrollToPosition.Start, true);
+#if ANDROID
+                        scrollView.ScrollToAsync(labelX, labelY, false);
+#elif WINDOWS
+                       
+                        //scrollView.ScrollToAsync(label, ScrollToPosition.Start, true);
+                        scrollView.ScrollToAsync(labelX, labelY, false);
+#endif
                     }
-                });
+                }); 
             }
             catch (Exception ex)
             {
