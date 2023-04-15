@@ -7,13 +7,6 @@
              Title="Paper000"
              x:DataType="viewmodel:PaperViewModel">
 
-    <ContentPage.Behaviors>
-        <behavior:EventToCommandBehavior
-            EventName="Loaded"
-            Command="{Binding PaperLoadedCommand}"
-            CommandParameter="{Binding PaperDto}"/>
-    </ContentPage.Behaviors>
-
     <ContentPage.Resources>
         <Style x:Key="BaseSpan" TargetType="Span">
             <Setter Property="FontFamily" Value="ACaslonProRegular"/>
@@ -75,7 +68,7 @@
         <Style x:Key="TabsSpan" TargetType="Span">
             <Setter Property="Text" Value="    " />
         </Style>
-        
+
         <Style x:Key="basePidStyle" TargetType="Label">
             <Setter Property="Margin" Value="0,20,5,0" />
             <Setter Property="VerticalTextAlignment" Value="Center" />
@@ -84,7 +77,7 @@
         <Style x:Key="emptySpantyle" TargetType="Span">
             <Setter Property="Text" Value="" />
         </Style>
-        
+
         <Style x:Key="PID" TargetType="Span">
             <Setter Property="TextColor" Value="Gray"/>
             <Setter Property="FontSize" Value="14"/>
@@ -110,6 +103,13 @@
             <Setter Property="Padding" Value="20,0,20,30" />
         </Style>
     </ContentPage.Resources>
+
+    <ContentPage.Behaviors>
+        <behavior:EventToCommandBehavior
+            EventName="Loaded"
+            Command="{Binding PaperLoadedCommand}"
+            CommandParameter="{Binding PaperDto}"/>
+    </ContentPage.Behaviors>
 
     <Grid x:Name="contentGrid">
         

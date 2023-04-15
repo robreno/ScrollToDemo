@@ -38,6 +38,7 @@ public static class MauiProgram
 
 		builder.Services.AddTransient<PaperViewModel>();
 		builder.Services.AddTransient<Paper000>();
+        builder.Services.AddTransient<Paper001>();
 
 		builder.Services.AddTransient<MainViewModel>();
 		builder.Services.AddTransient<MainPage>();

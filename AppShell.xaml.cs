@@ -8,5 +8,6 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
 		Routing.RegisterRoute(nameof(Paper000), typeof(Paper000));
-	}
+        Routing.RegisterRoute(nameof(Paper001), typeof(Paper001));
+    }
 }

@@ -49,9 +49,9 @@ namespace ScrollToDemo.ViewModels
             {
                 var dto = new PaperDto()
                 {
-                    Id = 0,
+                    Id = 1,
                     ScrollTo = true,
-                    Uid = "008.000.001.000",
+                    Uid = "008.001.001.000",
                     Title = "Foreword",
                     Author = "Divine Conselor",
                     PartId = 0,
@@ -93,8 +93,7 @@ namespace ScrollToDemo.ViewModels
                 }
 
                 int paperId = dto.Id;
-                string paperName = "Paper" + paperId.ToString("000");
-                var targetPage = nameof(Paper000);
+                string targetPage = "Paper" + paperId.ToString("000");
                 await Shell.Current.GoToAsync(targetPage, new Dictionary<string, object>()
                 {
                     {"PaperDto", dto }
