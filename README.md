@@ -11,4 +11,5 @@ test different functionality. The Main page has a checkbox that sets a boolean
 value on the ViewModel that determines if the IsVisible style on the Label's
 used to provide a ReferenceId are true or false.
 
-### Behaivor Observed
+### ScrollToAsync Behaivor Observed
+On Windows the ScrollToAsync using Paper000 works as expected. On Android it does not work at all.
