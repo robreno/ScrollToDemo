@@ -11,5 +11,6 @@ test different functionality. The Main page has a checkbox that sets a boolean
 value on the ViewModel that determines if the IsVisible style on the Label's
 used to provide a ReferenceId are true or false.
 
-### ScrollToAsync Behaivor Observed
+### Paper000 ScrollToAsync Behaivor Observed
 On Windows the ScrollToAsync using Paper000 works as expected. On Android it does not work at all.
+This has been filed as bug ([#14594](https://github.com/dotnet/maui/issues/14594)).
