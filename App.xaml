@@ -9,6 +9,82 @@
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <Style x:Key="AppBaseSpan" TargetType="Span">
+                <Setter Property="FontFamily" Value="ACaslonProRegular"/>
+                <Setter Property="FontSize" Value="18.5" />
+            </Style>
+
+            <Style x:Key="AppAllSmallCaps" TargetType="Span" BasedOn="{StaticResource AppBaseSpan}">
+                <Setter Property="FontFamily" Value="ACaslonProBold"/>
+                <Setter Property="TextTransform" Value="Uppercase" />
+                <Setter Property="FontSize" Value="16.0" />
+            </Style>
+
+            <Style x:Key="AppSmallCaps" TargetType="Span" BasedOn="{StaticResource AppAllSmallCaps}"/>
+
+            <Style x:Key="AppBaseSpanBold" TargetType="Span" BasedOn="{StaticResource AppBaseSpan}">
+                <Setter Property="FontFamily" Value="ACaslonProBold"/>
+            </Style>
+
+            <Style x:Key="AppBaseSpanItalic" TargetType="Span" BasedOn="{StaticResource AppBaseSpan}">
+                <Setter Property="FontFamily" Value="ACaslonProItalic"/>
+            </Style>
+
+            <Style x:Key="AppOpeningSpan" TargetType="Span" BasedOn="{StaticResource AppAllSmallCaps}"/>
+
+            <Style x:Key="AppBaseParagaphSpan" TargetType="Span" BasedOn="{StaticResource AppBaseSpan}" />
+
+            <Style x:Key="AppRegularSpan" TargetType="Span" BasedOn="{StaticResource AppBaseParagaphSpan}" />
+
+            <Style x:Key="AppSectionSpan" TargetType="Span" BasedOn="{StaticResource AppBaseSpanBold}">
+                <Setter Property="FontSize" Value="17.5" />
+                <Setter Property="TextTransform" Value="Uppercase" />
+            </Style>
+
+            <Style x:Key="AppRegularSpaceSpan" TargetType="Span" BasedOn="{StaticResource AppRegularSpan}">
+                <Setter Property="Text" Value=" " />
+            </Style>
+
+            <Style x:Key="AppTitleSpan" TargetType="Span" BasedOn="{StaticResource AppBaseSpanBold}">
+                <Setter Property="FontSize" Value="17.5" />
+                <Setter Property="TextTransform" Value="Uppercase" />
+            </Style>
+
+            <Style x:Key="AppTabsSpan" TargetType="Span">
+                <Setter Property="Text" Value="    " />
+            </Style>
+
+            <Style x:Key="AppPID" TargetType="Span">
+                <Setter Property="TextColor" Value="Gray"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontFamily" Value="OldStyle7Std" />
+            </Style>
+
+            <Style x:Key="AppBaseParagraph" TargetType="Label">
+                <Setter Property="FontSize" Value="18.5"/>
+                <Setter Property="Margin" Value="0,0,0,0" />
+            </Style>
+
+            <Style  x:Key="AppTitleParagraph" TargetType="Label" BasedOn="{StaticResource AppBaseParagraph}">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="Margin" Value="0,0,0,0" />
+            </Style>
+
+            <Style x:Key="AppSectionParagraph" TargetType="Label" BasedOn="{StaticResource AppTitleParagraph}">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Margin" Value="0,20,0,0" />
+            </Style>
+
+            <Style x:Key="AppOpeningParagraph" TargetType="Label" BasedOn="{StaticResource AppBaseParagraph}" />
+            <Style x:Key="AppRegularParagraph" TargetType="Label" BasedOn="{StaticResource AppBaseParagraph}"/>
+
+            <Style x:Key="AppPaperContent" TargetType="VerticalStackLayout">
+                <Setter Property="Padding" Value="20,0,20,30" />
+            </Style>
+
         </ResourceDictionary>
         
     </Application.Resources>

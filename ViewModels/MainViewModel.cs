@@ -32,7 +32,7 @@ namespace ScrollToDemo.ViewModels
         {
            try
             {
-                ShowReferencePids = Preferences.Get("show_reference_pids", true);
+                ShowReferencePids = Preferences.Get("show_reference_pids", false);
                 await CreatePaperDto();
             }
             catch (Exception ex)

@@ -53,15 +53,19 @@ namespace ScrollToDemo.ViewModels
                 return;
             }
 
-            ShowReferencePids = Preferences.Default.Get("show_reference_pids", true);
+            ShowReferencePids = Preferences.Default.Get("show_reference_pids", false);
 
+            var paperId = dto.Id;
             var scrollTo = dto.ScrollTo;
             var uid = dto.Uid;
             IsScrollToLabel = dto.ScrollTo;
 
             ScrollToLabelName = "_" + uid.Substring(4, 3) + "_" + uid.Substring(0, 3);
 
-            await SetReferencePids();
+            if (paperId == 0)
+            {
+                await SetReferencePids();
+            }
 
             if (IsScrollToLabel)
             {
@@ -121,6 +125,10 @@ namespace ScrollToDemo.ViewModels
         {
             try
             {
+                if (ShowReferencePids == true)
+                {
+                    labelName = "RID" + labelName;
+                }
                 await MainThread.InvokeOnMainThreadAsync(() =>
                 {
                     var scrollView = contentPage.FindByName("contentScrollView") as ScrollView;
@@ -135,8 +143,8 @@ namespace ScrollToDemo.ViewModels
                         scrollView.ScrollToAsync(labelX, labelY, false);
 #elif WINDOWS
                        
-                        //scrollView.ScrollToAsync(label, ScrollToPosition.Start, true);
-                        scrollView.ScrollToAsync(labelX, labelY, false);
+                        scrollView.ScrollToAsync(label, ScrollToPosition.Start, true);
+                        //scrollView.ScrollToAsync(labelX, labelY, false);
 #endif
                     }
                 }); 
