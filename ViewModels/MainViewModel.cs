@@ -49,9 +49,9 @@ namespace ScrollToDemo.ViewModels
             {
                 var dto = new PaperDto()
                 {
-                    Id = 1,
+                    Id = 0,
                     ScrollTo = true,
-                    Uid = "008.001.001.000",
+                    Uid = "008.000.001.000",
                     Title = "Foreword",
                     Author = "Divine Conselor",
                     PartId = 0,

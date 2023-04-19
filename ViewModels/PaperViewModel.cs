@@ -18,6 +18,7 @@ namespace ScrollToDemo.ViewModels
     public partial class PaperViewModel : ObservableObject
     {
         Dictionary<string, Span> _spans = new Dictionary<string, Span>();
+        private bool targetRefId = false;
 
         /// <summary>
         /// 
@@ -125,7 +126,7 @@ namespace ScrollToDemo.ViewModels
         {
             try
             {
-                if (ShowReferencePids == true)
+                if (ShowReferencePids == true && targetRefId)
                 {
                     labelName = "RID" + labelName;
                 }
